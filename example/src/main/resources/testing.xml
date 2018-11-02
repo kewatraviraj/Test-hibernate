@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-config PUBLIC
+        "-//Hibernate/Hibernate Config DTD 3.1//EN"
+        "http://www.hibernate.org/dtd/hibernate-config-3.1.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+		 <!-- Database connection settings -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testhibernate</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hbm2ddl.auto">update </property>
+        
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection_pool_size">true</property>
+
+<!--         Disable the second-level cache 
+        <property name="cache.provider_class">org.hibernate.NoCacheProvider</property>
+ -->
+        <!-- Echo all executed SQL to stdout -->
+        <!-- <property name="show_sql">1</property>
+ -->
+<!--         Drop and re-create the database schema on startup
+        <property name="hbmdl.auto">update</property>
+ -->
+        <!-- Names the annotated entity class -->
+        <mapping class="org.hibernate.example2.TestTable"/>
+
+    </session-factory>
+
+</hibernate-configuration>
+

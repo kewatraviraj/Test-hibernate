@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="org.hibernate.example1.User" table="user">
+		<id name="userId" type="int" column="user_id">
+			<generator class="native" />
+		</id>
+		<property name="username" column="user_name" />
+
+		<list name="address" cascade="all">
+			<key column="uid"></key>
+			<index column="type"></index>
+			<one-to-many class="org.hibernate.example1.Address" />
+		</list>
+	</class>
+	<class name="org.hibernate.example1.Address" table="address">
+		<id name="addId" type="int" column="add_id">
+			<generator class="native" />
+		</id>
+		<property name="add1" column="line1" />
+		<property name="add2" column="line2" />
+	</class>
+</hibernate-mapping>
